@@ -1,0 +1,223 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Undangan Pernikahan</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Georgia, serif;
+  background: #f7eee4;
+  color: #765b43;
+  text-align: center;
+}
+
+.cover {
+  min-height: 100vh;
+  background: linear-gradient(
+    rgba(40,30,20,.45),
+    rgba(40,30,20,.55)
+  ), url("https://images.unsplash.com/photo-1519741497674-611481863552?w=1200")
+  center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  color: white;
+}
+
+.cover-content {
+  border: 1px solid #e5c99b;
+  padding: 40px 25px;
+  max-width: 500px;
+  width: 100%;
+  background: rgba(0,0,0,.25);
+  backdrop-filter: blur(3px);
+}
+
+h1 {
+  font-size: 38px;
+  margin: 20px 0;
+  color: #f4dfb8;
+}
+
+button {
+  padding: 13px 25px;
+  border: none;
+  border-radius: 30px;
+  background: #b99562;
+  color: white;
+  cursor: pointer;
+  margin-top: 20px;
+  font-size: 15px;
+}
+
+button:hover {
+  background: #8f7047;
+}
+
+#invitation {
+  display: none;
+}
+
+.section {
+  padding: 65px 20px;
+}
+
+.flower {
+  font-size: 35px;
+  margin-bottom: 20px;
+}
+
+.names {
+  font-size: 35px;
+  color: #a17d4f;
+  margin: 20px 0;
+  font-style: italic;
+}
+
+.card {
+  background: white;
+  max-width: 480px;
+  margin: 25px auto;
+  padding: 30px 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px #c9b9a5;
+}
+
+.date {
+  font-size: 23px;
+  color: #a17d4f;
+  margin: 15px;
+}
+
+footer {
+  padding: 35px 15px;
+  background: #e9dccb;
+}
+
+#musicBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  border-radius: 50%;
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  z-index: 10;
+}
+</style>
+</head>
+
+<body>
+
+<audio id="music" loop>
+  <source src="Mumun - Doel Sumbang Lirik Lagu HD [youaretube.com].mp3" type="audio/mpeg">
+</audio>
+
+<button id="musicBtn" onclick="toggleMusic()">
+  🎵
+</button>
+
+<div class="cover" id="cover">
+  <div class="cover-content">
+    <p>THE WEDDING OF</p>
+    <div class="flower">💐</div>
+    <h1>muhemin & sarminah</h1>
+    <p>20 Desember 2026</p>
+    <p>Dengan penuh cinta dan kebahagiaan</p>
+    <button onclick="openInvitation()">
+      💌 Buka Undangan
+    </button>
+  </div>
+</div>
+
+<div id="invitation">
+
+  <div class="section">
+    <div class="flower">🌸</div>
+    <p>بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم</p>
+
+    <h2>Undangan Pernikahan</h2>
+
+    <p>
+      Dengan memohon rahmat dan ridho Allah SWT,
+      kami bermaksud menyelenggarakan pernikahan putra-putri kami:
+    </p>
+
+    <div class="names">muhemin</div>
+    <p>Putra dari Bapak maman & Ibu mimin</p>
+
+    <h2>&</h2>
+
+    <div class="names">sarminah</div>
+    <p>Putri dari Bapak oman & Ibu mumun</p>
+  </div>
+
+  <div class="section">
+    <div class="card">
+      <h2>Akad Nikah</h2>
+      <p class="date">20 Desember 2026</p>
+      <p>Pukul 09.00 WIB</p>
+      <p>Tempat: Gedung Pernikahan</p>
+    </div>
+
+    <div class="card">
+      <h2>Resepsi</h2>
+      <p class="date">20 Desember 2026</p>
+      <p>Pukul 11.00 WIB - Selesai</p>
+      <p>Tempat: Gedung Pernikahan</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="flower">🤍</div>
+    <h2>Doa & Restu</h2>
+    <p>
+      Merupakan suatu kehormatan dan kebahagiaan
+      bagi kami apabila Bapak/Ibu/Saudara/i
+      berkenan hadir untuk memberikan doa restu.
+    </p>
+    <br>
+    <p>Terima kasih atas doa dan kehadirannya.</p>
+  </div>
+
+  <footer>
+    <h2>muhemin & sarminah</h2>
+    <p>Forever Begins Here ❤️</p>
+    <p>20 Desember 2026</p>
+  </footer>
+
+</div>
+
+<script>
+const music = document.getElementById("music");
+
+function openInvitation() {
+  document.getElementById("cover").style.display = "none";
+  document.getElementById("invitation").style.display = "block";
+
+  music.play().catch(() => {
+    alert("Silakan tekan tombol musik 🎵 untuk memutar lagu.");
+  });
+}
+
+function toggleMusic() {
+  if (music.paused) {
+    music.play();
+  } else {
+    music.pause();
+  }
+}
+</script>
+
+</body>
+</html>
